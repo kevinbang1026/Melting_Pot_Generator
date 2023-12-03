@@ -23,7 +23,7 @@ if text:
     text = text.replace('\n', '')
     st.markdown("## KoBART 요약 결과")
     with st.spinner('processing..'):
-        input_ids = tokenizer.encode(text, )
+        input_ids = tokenizer.encode(text, padding=True, pad_to_multiple_of=512)
         print(len(input_ids))
         input_ids = torch.tensor(input_ids)
         input_ids = input_ids.unsqueeze(0)
